@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="/js/ga.js?v=ga1" data-cfasync="false"></script>
+  <title>Free DIY endless tow build guide | System 6.9</title>
+  <meta name="description" content="Free build guide for a one-motor endless-loop tow for foil and skim: how it works, safety, the test ladder, the capstan housing cut list, drive options and loop length math." />
+  <meta name="theme-color" content="#0b1220" />
+  <link rel="canonical" href="https://www.system6point9.com/guide" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="System 6.9" />
+  <meta property="og:title" content="Free DIY endless tow build guide" />
+  <meta property="og:description" content="How a one-motor endless-loop tow works, how to test it safely, and the drive end I'm building on the bench. Free, updated as the build goes." />
+  <meta property="og:url" content="https://www.system6point9.com/guide" />
+  <meta property="og:image" content="https://www.system6point9.com/media/splash-poster.jpg" />
+  <meta property="og:image:width" content="1280" />
+  <meta property="og:image:height" content="720" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/parts.css?v=prem1" />
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="/">System <span>6.9</span></a>
+    <nav class="nav" aria-label="Site">
+      <a href="/">Home</a>
+      <a href="/guide" aria-current="page">Guide</a>
+      <a href="/parts">Parts</a>
+      <a href="/builds">Builds</a>
+      <a href="/store/">Merch</a>
+    </nav>
+  </header>
+  <main class="wrap guide-page">
+    <p class="kicker">Free build guide · 9 chapters</p>
+    <h1>Build guide: a one-motor endless tow</h1>
+    <p class="intro">This guide is free, and it stays free. Use it to compare ideas, size a build for your own setup and see what the parts really cost. Other builders' setups are on <a href="/builds">community builds</a>, current part prices are on the <a href="/parts">parts list</a>, and other people's winches and tow boogies are on <a href="/related">related DIY builds</a>. It follows my own build from the bench to first rides, and I add to it as each step works. Chapters marked "coming" are waiting on the prototype.</p>
+    <p class="warn">Not a certified tow system. You build it, you're responsible for it. Nothing here has carried a rider yet.</p>
+
+    <nav class="toc" aria-label="Chapters">
+      <ol>
+        <li><a href="#what">What it is</a></li>
+        <li><a href="#safety">Safety first</a></li>
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#ladder">Build order and test ladder</a></li>
+        <li><a href="#housing">Drive end: the capstan housing</a></li>
+        <li><a href="#drive">Motor to capstan</a></li>
+        <li><a href="#loop">Line and loop length</a></li>
+        <li><a href="#parts">Parts</a></li>
+        <li><a href="#coming">Coming next</a></li>
+      </ol>
+    </nav>
+
+    <section id="what">
+      <h2>1. What it is</h2>
+      <p>System 6.9 is an endless rope loop strung between two low A-frames on a shoreline. One motor on the drive end turns a capstan. The loop moves, and a carrier on the loop pulls the rider. Reverse the motor and the rider goes the other way.</p>
+      <p>It is meant for foil and skim at a tow height of about 0.8 to 1.5 m, over a span of roughly 80 to 150 m. It is not a cable park, a one-way winch, or a wake tower (see <a href="/diy-endless-tow">how a DIY endless tow compares</a>). The parts budget I'm working to is about $1,750 to $5,000.</p>
+    </section>
+
+    <section id="safety">
+      <h2>2. Safety first</h2>
+      <ul>
+        <li>Wire a mushroom E-stop to a contactor that cuts the battery pack. Test it before every session.</li>
+        <li>Run the motor controller in speed mode with a soft ramp of 6 to 12 seconds, for starts, stops and reversals.</li>
+        <li>Guard every chain, belt and nip point. Rope or clothing caught in one is the main hazard.</li>
+        <li>Have a spotter with the E-stop for every ride.</li>
+        <li>Don't go to the lake until the bench test passes. Then run the loop empty before anyone rides it.</li>
+      </ul>
+    </section>
+
+    <section id="how">
+      <h2>3. How it works</h2>
+      <p>The drive shore has everything powered: the battery, the motor controller, the motor and the capstan. The return shore has only an idler pulley on a sliding carriage and the parts that keep the loop tight.</p>
+      <p>Torque goes from the battery to the controller, the motor shaft, a key, the hub and the capstan drum. The rope wraps the drum several times, and that grip moves the whole loop. A key carries the torque. Set screws and lock nuts only stop parts sliding along the shaft.</p>
+      <h3>Keeping the loop tight</h3>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Part</th><th>Job</th></tr></thead>
+        <tbody>
+          <tr><td>2 extension springs</td><td>Working tension. They take up slack as the line stretches.</td></tr>
+          <tr><td>2 heavy ratchet straps</td><td>Backup if a spring fails. Not the main tension.</td></tr>
+          <tr><td>Hard stops</td><td>The last limit on how far the carriage can slide.</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>Use extension springs that pull. Torsion springs from a garage door are the wrong part.</p>
+    </section>
+
+    <section id="ladder">
+      <h2>4. Build order and test ladder</h2>
+      <p>Each step has a pass check. Don't start the next step until the last one passes.</p>
+      <ol class="steps">
+        <li><strong>Bench grip test.</strong> Key the drum to the motor, wrap 3 or 4 turns of rope, and pull hard against a fixed anchor such as a truck. It passes when the line moves under load without slipping or polishing the drum, and the E-stop kills the pack.</li>
+        <li><strong>Empty shuttle.</strong> Set both A-frames, reeve the loop, set the springs, straps and stops, and run it with no rider in both directions. It passes when it reverses cleanly, the rope doesn't jump, and the tension holds.</li>
+        <li><strong>Foil speed.</strong> Add the carrier, a short tow and a handle. Ride at about 12 to 18 km/h only, with a spotter on the E-stop.</li>
+        <li><strong>Skim speed.</strong> Only after foil runs are boring: about 25 to 35 km/h.</li>
+      </ol>
+    </section>
+
+    <section id="housing">
+      <h2>5. Drive end: the capstan housing</h2>
+      <p>My bench rig is a Portable Winch PCA-1100 capstan drum on a 25 mm shaft, held by two UCP205 pillow blocks on a plywood base. This is the current draft. Every number comes from catalog data, so measure your own parts with calipers before you drill.</p>
+      <h3>Cut list (19 mm plywood)</h3>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Part</th><th>Qty</th><th>Size (mm)</th></tr></thead>
+        <tbody>
+          <tr><td>Base</td><td>1</td><td>220 × 500</td></tr>
+          <tr><td>Riser pad layers (glue 3 per stack)</td><td>6</td><td>50 × 180</td></tr>
+          <tr><td>Thrust cleats</td><td>2</td><td>50 × 38</td></tr>
+          <tr><td>Fairlead upright layers</td><td>2</td><td>200 × 230</td></tr>
+          <tr><td>Gussets (right triangles)</td><td>2</td><td>150 × 150</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>That's about 0.15 m², so half of a 2 × 4 ft panel is enough.</p>
+      <h3>Key numbers</h3>
+      <ul>
+        <li>The riser pads are 57 mm tall, which puts the shaft 93.5 mm above the base.</li>
+        <li>The pillow block bolt centres are 105 mm apart, and the two bearings sit 111.5 mm apart centre to centre.</li>
+        <li>The fairlead upright stands 305 mm from the shaft, with the fairlead mounted long side vertical. Both strands leave the drum about 82 mm apart, one off the top and one off the bottom.</li>
+      </ul>
+      <h3>Measure before you drill</h3>
+      <ul>
+        <li>The pillow block slot centres and the shaft centre height.</li>
+        <li>The inner ring width, and how far the foot reaches toward the drum. Mine may overlap the drum rim by about 1.5 mm, so dry-fit first.</li>
+        <li>The fairlead bolt spacing, bolt hole size and opening size. Some ATV fairleads take M8 bolts.</li>
+        <li>The real diameter of a printed shaft on each journal.</li>
+      </ul>
+      <p>Clamp the base to the bench with the drive end at the edge, because the rope pulls the whole rig toward the far pulley. For first spins, use a drill with a 1/2 in square adapter, which is gentler on a printed shaft than an impact wrench.</p>
+    </section>
+
+    <section id="drive">
+      <h2>6. Motor to capstan</h2>
+      <p>The shaft takes a standard 8 × 7 key. Add a set screw over the key and medium threadlocker. Put the drive sprocket or coupling right next to a bearing.</p>
+      <ul>
+        <li><strong>#40 roller chain at about 3:1.</strong> My pick for a lake. It is cheap, tolerates dirt and water, and is easy to fix. It puts a large side load on the motor shaft, so a bare brushless motor needs a short jackshaft on two more pillow blocks. It needs a full guard.</li>
+        <li><strong>HTD 8M timing belt.</strong> Quiet and clean, with no oil. Wet sand and shock loads are hard on belts, and they need tighter alignment than chain.</li>
+        <li><strong>Direct jaw coupling.</strong> The simplest, but it has no reduction. Use it only with a gearmotor whose output already turns at capstan speed.</li>
+      </ul>
+    </section>
+
+    <section id="loop">
+      <h2>7. Line and loop length</h2>
+      <p>The plan is an endless loop of about 3 mm Dyneema. Measure the span between the two A-frames on site, then order rope for 2 × span, plus the wraps on the drum, plus the splice. For a 100 m span that's over 200 m of line.</p>
+    </section>
+
+    <section id="parts">
+      <h2>8. Parts</h2>
+      <p>The hardware on my bench right now, with links, is on the <a href="/parts">parts page</a>.</p>
+    </section>
+
+    <section id="coming">
+      <h2>9. Coming next</h2>
+      <p>These chapters arrive as I build and test them: motor and battery sizing, the E-stop and contactor wiring diagram, A-frames and the return carriage, and results from the empty shuttle and first rides.</p>
+    </section>
+
+    <section class="cta">
+      <h2>Get each new chapter</h2>
+      <p>Join the list and I'll email when a chapter lands. Free, and only about System 6.9.</p>
+      <a class="check" href="/#signup">Join the list</a>
+    </section>
+    <p class="fine">Not a certified tow system. You build it, you're responsible for it. Use at your own risk.</p>
+  </main>
+</body>
+</html>

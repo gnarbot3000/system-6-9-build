@@ -1,0 +1,7 @@
+name = "system-6-9"
+compatibility_date = "2024-09-01"
+pages_build_output_dir = "."
+
+[[kv_namespaces]]
+binding = "SYSTEM69_WAITLIST"
+id = "1e73eb8b855c4b5fa81ef0cd0bfd2ba4"

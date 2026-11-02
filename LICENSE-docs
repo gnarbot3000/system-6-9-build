@@ -1,0 +1,19 @@
+System 6.9 documentation license
+
+The documentation in this repository, including the build guides and page text
+(guide, parts, builds, DIY endless tow, related, executive summary), the PDFs
+(system-6-9-product-summary.pdf) and the Markdown docs (README.md, CONTRIBUTING.md),
+is licensed under the Creative Commons Attribution 4.0 International License
+(CC BY 4.0).
+
+You may share and adapt this material for any purpose, including commercially,
+as long as you give appropriate credit, link to the license, and indicate if
+changes were made.
+
+Full legal code: https://creativecommons.org/licenses/by/4.0/legalcode
+
+Source code in this repository is licensed separately under the MIT License;
+see LICENSE.
+
+The documentation is provided as is, without warranty of any kind. System 6.9 is
+a community DIY project, not a certified tow system. Use it at your own risk.

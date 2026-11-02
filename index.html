@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="js/ga.js?v=ga1" data-cfasync="false"></script>
+  <title>DIY Endless Shuttle Tow, a Community Build | System 6.9</title>
+  <meta name="description" content="A community project for building your own endless shuttle tow for foil, skim, backyard snow, sled and skate. Compare builds, see real part costs and read the free guide." />
+  <link rel="canonical" href="https://www.system6point9.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="System 6.9" />
+  <meta property="og:title" content="System 6.9: a community DIY endless tow" />
+  <meta property="og:description" content="A community project for building your own endless shuttle tow for foil, skim, backyard snow, sled and skate. Compare builds, see real part costs and read the free guide." />
+  <meta property="og:url" content="https://www.system6point9.com/" />
+  <meta property="og:image" content="https://www.system6point9.com/media/splash-poster.jpg" />
+  <meta property="og:image:width" content="1280" />
+  <meta property="og:image:height" content="720" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#0b1220" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #f4f7fc;
+      --muted: rgba(232,238,248,0.76);
+      --accent: #3de0c0;
+      --accent2: #8ec0ff;
+      --line: rgba(255,255,255,0.14);
+      --panel: rgba(255,255,255,0.035);
+      --danger: #ff8e8e;
+      --bg: #0b1220;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; color: var(--ink); background: var(--bg); font-family: "DM Sans", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: var(--accent2); }
+    a:hover { color: var(--accent); }
+    .mono { margin: 0; font-family: "JetBrains Mono", monospace; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+    .hero .mono { color: #7ff0d8; text-shadow: 0 1px 10px rgba(0,0,0,0.7); }
+
+    /* header over the hero */
+    .top { position: absolute; top: 0; left: 0; right: 0; z-index: 3; display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.5rem 1rem; max-width: 1100px; margin: 0 auto; }
+    .brand { font-weight: 700; font-size: 1.05rem; color: var(--ink); text-decoration: none; display: inline-block; line-height: 44px; }
+    .brand span, .grad { background: linear-gradient(90deg, var(--accent), var(--accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .top nav { display: flex; }
+    .top nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 0.6rem; font-size: 0.88rem; color: rgba(244,247,252,0.85); text-decoration: none; }
+    .top nav a:hover { color: var(--ink); }
+    @media (max-width: 400px) { .top nav a.opt { display: none; } }
+
+    /* hero: the endless loop fills the screen, the words sit low and large */
+    .hero { position: relative; min-height: 92svh; display: flex; align-items: flex-end; overflow: hidden; background: var(--bg) url(media/splash-poster.jpg) center / cover no-repeat; }
+    .hero video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    @media (prefers-reduced-motion: reduce) { .hero video { display: none; } }
+    .hero::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(180deg, rgba(8,12,22,0.55) 0%, rgba(8,12,22,0.1) 28%, rgba(8,12,22,0.35) 55%, rgba(11,18,32,0.96) 92%, var(--bg) 100%); }
+    .hero-in { position: relative; z-index: 2; width: 100%; max-width: 1100px; margin: 0 auto; padding: 6rem 1.25rem 2.75rem; }
+    .hero h1 { margin: 0.7rem 0 0.9rem; font-size: clamp(2.6rem, 12vw, 5.2rem); line-height: 0.98; font-weight: 700; letter-spacing: -0.045em; max-width: 12ch; text-shadow: 0 2px 30px rgba(0,0,0,0.35); }
+    .hero .lede { margin: 0 0 1.25rem; max-width: 34rem; font-size: 1.08rem; line-height: 1.5; color: rgba(244,247,252,0.88); text-shadow: 0 1px 14px rgba(0,0,0,0.5); }
+    .uses { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0 0 1.6rem; padding: 0; list-style: none; }
+    .uses li { font-size: 0.8rem; padding: 0.35rem 0.7rem; border-radius: 999px; border: 1px solid rgba(255,255,255,0.22); background: rgba(8,12,22,0.35); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+    .cta-main { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; min-height: 54px; padding: 0 1.6rem; border-radius: 14px; font-weight: 700; font-size: 1.02rem; text-decoration: none; color: #06121c !important; background: linear-gradient(90deg, var(--accent), #6ad0ff); box-shadow: 0 10px 36px rgba(61,224,192,0.28); }
+    .cta-main:hover { filter: brightness(1.06); }
+    .cta-sub { display: block; margin: 0.9rem 0 0; font-size: 0.9rem; color: var(--muted); }
+    .cta-sub a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; text-decoration: none; }
+    @media (max-width: 480px) { .cta-main { width: 100%; } .hero .lede { font-size: 1rem; } }
+
+    /* sections */
+    main.body { max-width: 680px; margin: 0 auto; padding: 0.5rem 1.25rem 2rem; }
+    .sec { margin: 0 0 3.25rem; }
+    .sec h2 { margin: 0.45rem 0 0.75rem; font-size: clamp(1.45rem, 6vw, 1.9rem); line-height: 1.15; letter-spacing: -0.025em; }
+    .sec p { margin: 0 0 0.8rem; color: var(--muted); line-height: 1.6; font-size: 1rem; }
+    .chapters { list-style: none; margin: 1rem 0 1.25rem; padding: 0; display: grid; gap: 0.6rem; counter-reset: ch; }
+    .chapters li { counter-increment: ch; display: grid; grid-template-columns: 2.2rem 1fr; align-items: start; padding: 0.85rem 1rem; border: 1px solid var(--line); border-radius: 14px; background: var(--panel); color: var(--muted); line-height: 1.45; font-size: 0.95rem; }
+    .chapters li::before { content: counter(ch, decimal-leading-zero); font-family: "JetBrains Mono", monospace; font-size: 0.78rem; color: var(--accent); padding-top: 0.15rem; }
+    .btn { display: inline-flex; align-items: center; min-height: 48px; padding: 0 1.2rem; border-radius: 12px; font-weight: 700; text-decoration: none; color: #06121c !important; background: linear-gradient(90deg, var(--accent), #6ad0ff); }
+    .bench { padding: 1.1rem 1.15rem; border: 1px solid var(--line); border-radius: 18px; background: linear-gradient(180deg, rgba(61,224,192,0.07), rgba(255,255,255,0.02)); }
+    .bench ul { list-style: none; margin: 0.4rem 0 0.9rem; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .bench li { font-size: 0.82rem; padding: 0.3rem 0.65rem; border-radius: 999px; border: 1px solid var(--line); color: var(--ink); background: rgba(0,0,0,0.25); }
+    .links-row { display: flex; flex-wrap: wrap; gap: 0 1.25rem; }
+    .links-row a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; text-decoration: none; }
+    .who { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; }
+    .who li { padding: 0.85rem 1rem; border-left: 2px solid var(--accent); background: var(--panel); border-radius: 0 12px 12px 0; color: var(--muted); line-height: 1.5; font-size: 0.95rem; }
+
+    /* signup */
+    .signup { padding: 1.25rem 1.15rem; border-radius: 18px; border: 1px solid rgba(61,224,192,0.4); background: rgba(61,224,192,0.05); }
+    .signup h2 { margin-top: 0.3rem; }
+    .signup p { font-size: 0.92rem; }
+    .row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .row input[type="email"] { flex: 1 1 180px; min-width: 0; min-height: 48px; border: 1px solid var(--line); background: rgba(255,255,255,0.06); color: var(--ink); border-radius: 12px; padding: 0.7rem 0.9rem; font: inherit; font-size: 1rem; outline: none; }
+    .row input[type="email"]:focus { border-color: rgba(61,224,192,0.6); box-shadow: 0 0 0 3px rgba(61,224,192,0.18); }
+    .row input::placeholder { color: rgba(232,238,248,0.45); }
+    .row button { flex: 0 0 auto; min-height: 48px; border: none; border-radius: 12px; padding: 0 1.1rem; font: inherit; font-weight: 700; font-size: 0.95rem; cursor: pointer; color: #041018; background: linear-gradient(90deg, var(--accent), #6ad0ff); }
+    @media (max-width: 400px) { .row button { flex: 1 1 100%; } }
+    .row button:disabled { opacity: 0.6; cursor: wait; }
+    .signup .intent { margin: 0.8rem 0 0.2rem; }
+    .signup .intent label { flex: 1 1 150px; min-width: 0; display: flex; flex-direction: column; gap: 0.3rem; font-size: 0.78rem; color: var(--muted); }
+    .signup select { width: 100%; min-height: 44px; border: 1px solid var(--line); background: rgba(255,255,255,0.06); color: var(--ink); border-radius: 10px; padding: 0.55rem 0.7rem; font: inherit; font-size: 0.9rem; }
+    .signup select option { color: #08121f; }
+    .signup .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+    .msg { margin: 0.65rem 0 0 !important; font-size: 0.85rem !important; line-height: 1.35; min-height: 1.1em; }
+    .msg.ok { color: var(--accent); }
+    .msg.err { color: var(--danger); }
+
+    /* faq */
+    .faq details { border-bottom: 1px solid var(--line); }
+    .faq summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem; min-height: 52px; padding: 0.5rem 0; font-weight: 600; font-size: 1rem; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: "+"; font-size: 1.3rem; color: var(--accent); transition: transform 0.2s; }
+    .faq details[open] summary::after { transform: rotate(45deg); }
+    .faq details p { margin: 0 0 1rem; font-size: 0.95rem; }
+    .faq h3 { margin: 0; font: inherit; }
+
+    .fine { margin: 0; font-size: 0.8rem; color: var(--muted); line-height: 1.55; }
+    footer { max-width: 680px; margin: 0 auto; padding: 1.5rem 1.25rem 2.5rem; border-top: 1px solid var(--line); font-size: 0.8rem; color: rgba(232,238,248,0.6); }
+    footer nav { display: flex; flex-wrap: wrap; gap: 0 1rem; margin: 0 0 0.5rem; }
+    footer a { display: inline-flex; align-items: center; min-height: 44px; color: rgba(232,238,248,0.8); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="/">System&nbsp;<span>6.9</span></a>
+    <nav aria-label="Site">
+      <a href="/guide">Guide</a>
+      <a href="/parts">Parts</a>
+      <a href="/builds">Builds</a>
+      <a class="opt" href="/store/">Merch</a>
+    </nav>
+  </header>
+
+  <section class="hero" aria-labelledby="hero-h">
+    <video
+      src="media/splash-endless.mp4?v=lite1"
+      poster="media/splash-poster.jpg"
+      autoplay
+      muted
+      loop
+      playsinline
+      aria-hidden="true"
+    ></video>
+    <script>
+      // Reduced motion: keep the still poster (CSS background) and don't download the loop.
+      if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        var v = document.querySelector('.hero video');
+        if (v) { v.pause(); v.removeAttribute('autoplay'); v.removeAttribute('src'); v.load(); }
+      }
+    </script>
+    <div class="hero-in">
+      <p class="mono">System 6.9 · community build</p>
+      <h1 id="hero-h">Build your own <span class="grad">endless tow.</span></h1>
+      <p class="lede">A battery or plug-in shuttle you put together from big-box parts and free open software, then ride lap after lap. Commercial endless tows cost tens of thousands of dollars. This is the do-it-yourself version, documented as it gets built.</p>
+      <ul class="uses" aria-label="What it tows">
+        <li>Foil / skim</li>
+        <li>Backyard snow</li>
+        <li>Sled uphill</li>
+        <li>Skate tow</li>
+      </ul>
+      <a class="cta-main" href="/guide">Read the free build guide <span aria-hidden="true">→</span></a>
+      <p class="cta-sub">Free, and it stays free. Or <a href="/builds">see community builds</a></p>
+    </div>
+  </section>
+
+  <main class="body">
+    <section class="sec" id="guide" aria-labelledby="guide-h">
+      <p class="mono">The guide</p>
+      <h2 id="guide-h">Everything you need before you drill</h2>
+      <ol class="chapters">
+        <li>How a one-motor endless loop works, and the safety rules I follow</li>
+        <li>The test ladder from bench grip test to empty shuttle to first rides</li>
+        <li>The capstan housing cut list and the numbers to measure before you drill</li>
+        <li>Chain, belt or direct drive, and how much rope to order</li>
+      </ol>
+      <a class="btn" href="/guide">Read the guide</a>
+      <p class="fine" style="margin-top:0.9rem">Updated as the build goes. It's a build journal, not a certified design. Build and ride at your own risk.</p>
+    </section>
+
+    <section class="sec bench" aria-labelledby="bench-h">
+      <p class="mono">On the bench now</p>
+      <h2 id="bench-h">The prototype, part by part</h2>
+      <ul aria-label="Parts on the bench">
+        <li>Portable Winch PCA-1100 capstan</li>
+        <li>UCP205 pillow blocks</li>
+        <li>Printed PETG shaft</li>
+        <li>80100 brushless motor</li>
+        <li>AmSteel endless loop</li>
+        <li>Roller fairleads</li>
+        <li>Plywood housing</li>
+      </ul>
+      <p>See what each builder used and what they paid, then size one for your own lake, pond or hill.</p>
+      <div class="links-row">
+        <a href="/parts">See the parts I'm using →</a>
+        <a href="/builds">Browse community builds →</a>
+      </div>
+    </section>
+
+    <section class="sec" aria-labelledby="who-h">
+      <p class="mono">Who it's for</p>
+      <h2 id="who-h">Lots of short runs, no boat needed</h2>
+      <ul class="who">
+        <li>Riders with a lake, pond or backyard hill and no boat or cable park.</li>
+        <li>Hobbyists comparing ideas and costs before they buy parts.</li>
+        <li>DIY builders happy to spend a weekend with a drill and a battery pack.</li>
+        <li>Families and clubs who want lots of short runs instead of one long ride.</li>
+      </ul>
+      <div class="links-row" style="margin-top:0.9rem">
+        <a href="/diy-endless-tow">Endless loop vs winch or cable tow →</a>
+      </div>
+    </section>
+
+    <section class="sec">
+      <form class="signup" id="signup" novalidate>
+        <p class="mono">Updates</p>
+        <h2>Get each new chapter</h2>
+        <p>An email when a guide chapter lands or a new community build goes up. Only about System 6.9.</p>
+        <div class="row">
+          <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@email.com" aria-label="Email" />
+          <button type="submit" id="submit">Email me updates</button>
+        </div>
+        <div class="row intent">
+          <label for="use">I ride (optional)
+            <select id="use" name="use">
+              <option value="">Pick one</option>
+              <option>Foil</option>
+              <option>Wake / skim</option>
+              <option>Snow / sled</option>
+              <option>Skate</option>
+              <option>Not sure yet</option>
+            </select>
+          </label>
+          <label for="want">Most interested in (optional)
+            <select id="want" name="want">
+              <option value="">Pick one</option>
+              <option value="guide">New guide chapters</option>
+              <option value="builds">Community builds</option>
+              <option value="contribute">Sharing my own build</option>
+            </select>
+          </label>
+        </div>
+        <div class="hp" aria-hidden="true">
+          <label for="company">Company</label>
+          <input id="company" name="company" type="text" tabindex="-1" autocomplete="off" />
+        </div>
+        <p class="msg" id="msg" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="sec faq" aria-labelledby="faq-h">
+      <p class="mono">Questions</p>
+      <h2 id="faq-h">Before you start</h2>
+      <details><summary><h3>What is a DIY endless tow?</h3></summary>
+        <p>An endless rope loop strung between two low A-frames on the shore. One motor turns a capstan, the loop moves, and a carrier on the loop pulls the rider. Reverse the motor and the rider comes back the other way.</p></details>
+      <details><summary><h3>Is it the same as a cable park or a winch?</h3></summary>
+        <p>No. It's a small shuttle for one rider at a time, meant for foil and skim at a tow height of about 0.8 to 1.5 m over roughly 80 to 150 m. It isn't a cable park, a one-way winch or a wake tower.</p></details>
+      <details><summary><h3>What does a build cost?</h3></summary>
+        <p>The parts budget for the prototype is about $1,750 to $5,000. The <a href="/parts">parts list</a> shows what's on the bench, and <a href="/builds">community builds</a> show what other builders used and paid.</p></details>
+      <details><summary><h3>Can I buy one?</h3></summary>
+        <p>No. System 6.9 is a community build, not a product. The <a href="/guide">guide</a>, the build gallery and the software are free.</p></details>
+      <details><summary><h3>Is it safe?</h3></summary>
+        <p>It's a build journal, not a certified tow system, so build and ride at your own risk. The guide starts with the safety rules: an E-stop on every session, a soft-start motor controller, guards on every nip point and a spotter for every ride.</p></details>
+    </section>
+  </main>
+
+  <footer>
+    <nav aria-label="More">
+      <a href="/guide">Build guide</a>
+      <a href="/parts">Parts</a>
+      <a href="/builds">Builds</a>
+      <a href="/store/">Merch (sold out)</a>
+      <a href="/exec-summary">Executive summary</a>
+    </nav>
+    <p class="fine">Community DIY project. The guide, the build gallery and the software are free. Not a certified tow system. Use at your own risk.<br />system6point9.com · systemsixpointnine.com</p>
+  </footer>
+  <script>
+    (function () {
+      var form = document.getElementById("signup");
+      var email = document.getElementById("email");
+      var btn = document.getElementById("submit");
+      var msg = document.getElementById("msg");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        msg.className = "msg";
+        msg.textContent = "";
+        var value = (email.value || "").trim();
+        if (!value || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+          msg.className = "msg err";
+          msg.textContent = "Enter a valid email.";
+          email.focus();
+          return;
+        }
+        btn.disabled = true;
+        msg.textContent = "Sending…";
+
+        fetch("/api/signup", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({
+            email: value,
+            source: location.hostname,
+            use: document.getElementById("use").value,
+            want: document.getElementById("want").value,
+            company: document.getElementById("company").value
+          })
+        })
+          .then(function (r) {
+            return r.json().then(function (data) {
+              return { ok: r.ok, data: data };
+            });
+          })
+          .then(function (res) {
+            if (!res.ok) throw new Error((res.data && res.data.error) || "Signup failed");
+            msg.className = "msg ok";
+            msg.textContent = res.data.message || "You’re on the list.";
+            try { if (window.gtag) window.gtag("event", "generate_lead", { form: "updates", want: document.getElementById("want").value || "none" }); } catch (_) {}
+            form.reset();
+          })
+          .catch(function (err) {
+            msg.className = "msg err";
+            msg.textContent = (err instanceof TypeError) ? "Couldn't reach the server. Check your connection and try again." : (err.message || "Something went wrong. Try again.");
+          })
+          .finally(function () {
+            btn.disabled = false;
+          });
+      });
+    })();
+  </script>
+</body>
+</html>

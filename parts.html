@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="/js/ga.js?v=ga1" data-cfasync="false"></script>
+  <title>DIY endless shuttle tow parts explained | System 6.9</title>
+  <meta name="description" content="What each part of a DIY endless shuttle tow does and what to look for: capstan drum, shaft and bearings, motor, controller, battery, E-stop, rope loop, fairleads, A-frames and tensioning. Not certified, build at your own risk." />
+  <meta name="theme-color" content="#0b1220" />
+  <link rel="canonical" href="https://www.system6point9.com/parts" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/parts.css?v=prem2" />
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="/">System <span>6.9</span></a>
+    <nav class="nav" aria-label="Site">
+      <a href="/">Home</a>
+      <a href="/guide">Guide</a>
+      <a href="/parts" aria-current="page">Parts</a>
+      <a href="/builds">Builds</a>
+      <a href="/store/">Merch</a>
+    </nav>
+  </header>
+  <main class="wrap">
+    <h1>Parts of a DIY endless shuttle tow, explained</h1>
+    <p class="intro">An endless shuttle is one rope loop strung between two low A-frames. A motor on the drive end turns a drum, the loop moves, and a carrier on the loop pulls the rider. Reverse the motor and the rider comes back. Here is what each part does and what to look for when you pick one. For how it all goes together, read the <a href="/guide">free build guide</a>.</p>
+    <p class="warn"><strong>Prototype, not a product.</strong> Nothing here is for sale, and nothing has carried a rider yet. This is a home build, not a certified tow system. Build and ride at your own risk.</p>
+
+    <h2 class="sec-h">The drive end</h2>
+    <ul class="parts">
+      <li id="pca1100"><h3>Capstan drum</h3>
+        <p><strong>What it does:</strong> the rope wraps the drum several times, and that grip is what moves the whole loop. The drum doesn't store rope like a winch spool, so the loop length doesn't change as it runs.</p>
+        <p><strong>Look for:</strong> a drum made for rope work, ideally with a rope guide, and a bore that fits your shaft. Check the line grips under load without slipping or polishing the drum; that's the first bench test in the guide.</p>
+        <p class="fine">On the bench: Portable Winch PCA-1100 (85 mm, with rope guide).</p></li>
+      <li id="hucp205"><h3>Shaft and pillow-block bearings</h3>
+        <p><strong>What they do:</strong> the shaft carries the drum, and two bolted bearing blocks hold the shaft steady while the rope pulls hard toward the far shore.</p>
+        <p><strong>Look for:</strong> a bore that matches your shaft, a footprint you can bolt down flat, and bearings close to the drum and to the drive sprocket or coupling. Measure the bolt slots and shaft height with calipers before you drill.</p>
+        <p class="fine">On the bench: HUCP205 pillow blocks, 25 mm bore (same footprint as UCP205).</p></li>
+      <li id="petg"><h3>Hub and shaft adapter</h3>
+        <p><strong>What it does:</strong> joins the drum to the shaft. A key carries the torque. Set screws and lock nuts only stop parts sliding along the shaft.</p>
+        <p><strong>Look for:</strong> a proper keyway (the guide uses a standard 8 × 7 key) and threadlocker on the set screw. A 3D-printed hub is fine for bench and empty-loop tests only, never for riding.</p>
+        <p class="fine">On the bench: printed in PETG, bench tests only.</p></li>
+      <li id="lovejoy"><h3>Motor-to-drum drive</h3>
+        <p><strong>What it does:</strong> gets the motor's power to the drum shaft, usually with a speed reduction so the drum turns slower and stronger than the motor.</p>
+        <p><strong>Look for:</strong> roller chain is cheap, tolerates dirt and water and is easy to fix, but it side-loads the motor shaft and needs a full guard. A timing belt is quiet but dislikes wet sand and shock. A direct jaw coupling is simplest but has no reduction, so it only suits a gearmotor that already turns at drum speed.</p>
+        <p class="fine">On the bench: Lovejoy L100 jaw coupling hub, 25 mm keyed, as one option.</p></li>
+      <li id="flipsky80100"><h3>Motor</h3>
+        <p><strong>What it does:</strong> turns the drum, forward and in reverse.</p>
+        <p><strong>Look for:</strong> a size that fits your use. A foil rider on flat water needs far less than an adult starting in deep water, and a backyard sled tow is different again. There's no one right size, which is why the guide's motor and battery sizing chapter is still coming.</p>
+        <p class="fine">On the bench: Flipsky 80100 brushless, 130KV, the bigger option for adult deep-water starts.</p></li>
+      <li id="controller"><h3>Motor controller</h3>
+        <p><strong>What it does:</strong> sits between the battery and the motor and sets how fast it turns.</p>
+        <p><strong>Look for:</strong> a speed mode and a soft ramp of about 6 to 12 seconds for starts, stops and reversals, so nobody gets jerked off their board.</p></li>
+      <li id="battery"><h3>Battery pack</h3>
+        <p><strong>What it does:</strong> powers everything on the drive shore. The return shore has no power at all.</p>
+        <p><strong>Look for:</strong> a pack sized to your motor and how many runs you want per session, a proper fuse, and a charger made for that pack.</p></li>
+      <li id="estop"><h3>E-stop and contactor</h3>
+        <p><strong>What it does:</strong> a big mushroom stop button wired to a contactor that cuts the battery pack. It's the most important part on the build.</p>
+        <p><strong>Look for:</strong> a button a spotter can slap without looking. Test it before every session, and have a spotter on it for every ride.</p></li>
+      <li id="housing"><h3>Housing</h3>
+        <p><strong>What it does:</strong> holds the bearings, drum and fairlead in line, and keeps fingers and clothing away from moving parts.</p>
+        <p><strong>Look for:</strong> a stiff base, solid bolts and glue, and a guard over every chain, belt and nip point. Rope or clothing caught in one is the main hazard. The guide has a full plywood cut list.</p>
+        <p class="fine">On the bench: 3/4 in plywood, 3/8 in-16 Grade 5 bolts, Titebond II, from any big-box store.</p></li>
+    </ul>
+
+    <h2 class="sec-h">The loop and the return end</h2>
+    <ul class="parts">
+      <li id="amsteel600"><h3>Rope loop</h3>
+        <p><strong>What it does:</strong> one endless loop of strong, low-stretch line runs out to the far shore and back.</p>
+        <p><strong>Look for:</strong> about 2 × your span, plus the wraps on the drum, plus the splice. For a 100 m span that's over 200 m of line. Measure the span on site before you order. Thin Dyneema is the plan for the finished loop.</p>
+        <p class="fine">On the bench: Samson AmSteel-Blue 1/4 in, a 600 ft spool for the loop.</p></li>
+      <li id="amsteel50"><h3>Test line</h3>
+        <p><strong>What it does:</strong> short lengths for the bench grip test before you commit to a full loop.</p>
+        <p><strong>Look for:</strong> the same line as your loop. Don't surge bare AmSteel on a capstan; use jacketed line or poly wraps on the drum.</p>
+        <p class="fine">On the bench: Samson AmSteel-Blue 1/4 in × 50 ft.</p></li>
+      <li id="weisen"><h3>Roller fairlead</h3>
+        <p><strong>What it does:</strong> guides both strands of the loop straight onto and off the drum so the rope doesn't jump or rub.</p>
+        <p><strong>Look for:</strong> rollers on all four sides, an opening that clears your rope, and bolt spacing that fits your upright. Mount it long side vertical.</p>
+        <p class="fine">On the bench: WeiSen 4-7/8 in 4-way roller fairlead.</p></li>
+      <li id="aframes"><h3>A-frames</h3>
+        <p><strong>What they do:</strong> hold the loop at tow height on each shore, about 0.8 to 1.5 m for foil and skim.</p>
+        <p><strong>Look for:</strong> a frame that stays put under a steady pull toward the water, with good anchoring. The A-frame chapter is coming next in the guide.</p></li>
+      <li id="tension"><h3>Return idler, springs and straps</h3>
+        <p><strong>What they do:</strong> the far shore has an idler pulley on a sliding carriage. Two extension springs keep the loop tight as the rope stretches, two heavy ratchet straps back them up, and hard stops are the last limit on how far the carriage can slide.</p>
+        <p><strong>Look for:</strong> extension springs that pull. Garage-door torsion springs are the wrong part.</p></li>
+      <li id="carrier"><h3>Carrier, tow line and handle</h3>
+        <p><strong>What they do:</strong> clip the rider to the moving loop.</p>
+        <p><strong>Look for:</strong> a short tow and a handle you can let go of cleanly. These wear, so check them every session.</p></li>
+    </ul>
+
+    <section class="cta">
+      <h2>Get the next chapter</h2>
+      <p>Motor and battery sizing, E-stop wiring and the A-frames are coming as I build and test them. Join the list and I'll email when each one lands.</p>
+      <a class="check" href="/#signup">Email me the next chapter</a>
+    </section>
+    <p class="intro">Read the full <a href="/guide">build guide</a>, see <a href="/builds">builds</a> from other people, or look at <a href="/related">related DIY tows</a> like wake winches and foil tow boogies.</p>
+    <p class="fine">Not a certified tow system. You build it, you're responsible for it.</p>
+  </main>
+</body>
+</html>
